@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="../static/echarts.min.js"></script>
+<script src="../static/jquery.js"></script>
+<body>
+<div  id ='main' style="width: 600px;height: 300px">
+</div>
+</body>
+<script>
+   ec = echarts.init(
+       document.getElementById("main"))
+{#    先服务器发送请求，获取数据#}
+    typeData=[]
+    numberData=[]
+    $.getJSON("showEcharts",function (res) {
+{#{"result":[{type:"上衣",gnumber:966}#}
+{#              ,{type:"书籍",gnumber:200},#}
+{#              {type:"医疗器械",gnumber:444}#}
+{#]}#}
+        for(i=0;i<res.result.length;i++){
+            typeData[i] =res.result[i].name
+            numberData[i]=res.result[i].total
+        }
+             setData()
+    })
+    function setData() {
+        var option={
+        xAxis: {
+            data:typeData
+        },
+        yAxis: {
+            type: 'value'
+        },
+        series: [{
+            data: numberData,
+            type: 'bar'
+        }]
+
+       };
+
+    ec.setOption(option)
+    }
+
+
+</script>
+
+
+</html>

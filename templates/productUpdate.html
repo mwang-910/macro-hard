@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>智简销售——商品管理——商品修改</title>
+    <link rel="stylesheet" href="../static/public.css"/>
+    <link rel="stylesheet" href="../static/style.css"/>
+</head>
+<body>
+<!--头部-->
+<header class="publicHeader">
+    <h1>商品管理</h1>
+
+    <div class="publicHeaderR">
+        <p><span id="hours">下午好！</span><span style="color: #fff21b"> Admin</span> , 欢迎你！</p>
+        <a href="login">退出</a>
+    </div>
+</header>
+<!--时间-->
+<section class="publicTime">
+    <span id="time">2019年8月22日 15:17  星期四</span>
+    <a href="#">温馨提示：为了能正常浏览，请使用高版本浏览器！（IE10+）</a>
+</section>
+<!--主体内容-->
+<section class="publicMian ">
+    <div class="left">
+        <h2 class="leftH2"><span class="span1"></span>功能列表 <span></span></h2>
+        <nav>
+            <ul class="list">
+                <li><a href="billList">交易管理</a></li>
+                <li id="active"><a href="product">商品管理</a></li>
+
+
+                <li><a href="login">退出系统</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="right">
+        <div class="location">
+            <strong>你现在所在的位置是:</strong>
+            <span>商品管理页面 >> 商品修改页面</span>
+        </div>
+        <div class="providerAdd">
+            <form  id="frm" method="post">
+                <!--div的class 为error是验证错误，ok是验证成功-->
+
+                    <div >
+                        <label for="productId">商品ID：</label>
+                        <input type="text" name="productId" id="productId" value={{ result[0][0] }} readonly="readonly"/>
+
+                    </div>
+                    <div>
+                        <label for="productName">商品名称：</label>
+                        <input type="text" name="productName" id="productName" value={{ result[0][1] }} readonly="readonly"/>
+
+                    </div>
+                    <div>
+                        <label for="type">种类：</label>
+                        <input type="text" name="type" id="type" value={{ result[0][3] }} />
+
+
+                    </div>
+                    <div>
+                        <label for="number">库存数量：</label>
+                        <input type="text" name="number" id="number" value={{ result[0][4] }} />
+
+                    </div>
+                    <div>
+                        <label for="price">单价：</label>
+                        <input type="text" name="price" id="price" value={{ result[0][5] }} />
+
+
+                    </div>
+                    <div>
+                        <label for="dateofproduce">生产日期：</label>
+                        <input type="text" name="dateofproduce" id="dateofproduce" value={{ result[0][6] }} readonly="readonly"/>
+
+
+                    </div>
+                    <div>
+                        <label for="dateofbad">保质日期：</label>
+                        <input type="text" name="dateofbad" id="dateofbad" value={{ result[0][7] }} readonly="readonly"/>
+
+                    </div>
+
+                <div class="providerAddBtn">
+
+                    <input id="btnupdate" type="button" value="保存" />
+                    <input type="button" value="返回" onclick="history.back(-1)"/>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</section>
+<footer class="footer">
+</footer>
+<script src="../static/time.js"></script>
+
+<script src="../static/jquery.js"></script>
+<script src="../static/js.js"></script>
+
+</body>
+</html>
